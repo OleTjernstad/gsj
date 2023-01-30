@@ -1,0 +1,39 @@
+:root {
+    --app-header-size: 5rem;
+}
+
+.container {
+    /* max-width: 940px; */
+    display: grid;
+}
+
+main {
+    min-height: calc(100vh - var(--app-header-size) - 10rem);
+}
+
+.header {
+    grid-column-start: 1;
+    height: var(--app-header-size);
+    padding: .57rem;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 4px -1px, rgba(0, 0, 0, 0.14) 0px 4px 5px 0px, rgba(0, 0, 0, 0.12) 0px 1px 10px 0px;
+}
+
+.logo-container {
+    display: flex;
+    justify-content: center;
+}
+
+.footer {
+    grid-column-start: 1;
+    /* grid-column-end: -1; */
+    height: 10rem;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 4px -1px, rgba(0, 0, 0, 0.14) 0px 4px 5px 0px, rgba(0, 0, 0, 0.12) 0px 1px 10px 0px;
+}
+
+@media (max-width: 800px) {
+    .container {
+        grid-template-columns: none;
+    }
+}
