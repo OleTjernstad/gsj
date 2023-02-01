@@ -21,7 +21,7 @@
 
 .videoSectionCenter {
     position: absolute;
-    top: 50%;
+    top: 30%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-shadow: 2px 1px 3px rgba(0, 0, 0, 0.83), -3px 5px 8px rgba(0, 0, 0, 1);
@@ -31,5 +31,5 @@
 }
 .videoSectionCenterSubTitle {
     font-size: 1rem;
-    top: 80%;
+    top: 60%;
 }
