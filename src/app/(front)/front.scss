@@ -15,192 +15,23 @@ main {
 
 .header {
     height: var(--app-header-size);
-    padding: .57rem;
+    padding: .47rem;
     background-color: white;
     box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 4px -1px, rgba(0, 0, 0, 0.14) 0px 4px 5px 0px, rgba(0, 0, 0, 0.12) 0px 1px 10px 0px;
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 99;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
 }
 
 .logo {
     display: inline-block;
     height: calc(var(--app-header-size - 10px));
     margin-left: 10px;
-}
-
-/* Menu Icon */
-.hamb {
-    cursor: pointer;
-    float: right;
-    padding: 20px 20px;
-}
-
-/* Style label tag */
-
-.hamb-line {
-    background: black;
-    display: block;
-    height: 2px;
-    position: relative;
-    width: 24px;
-
-}
-
-/* Style span tag */
-
-.hamb-line::before,
-.hamb-line::after {
-    background: black;
-    content: '';
-    display: block;
-    height: 100%;
-    position: absolute;
-    transition: all .2s ease-out;
-    width: 100%;
-}
-
-.hamb-line::before {
-    top: 5px;
-}
-
-.hamb-line::after {
-    top: -5px;
-}
-
-.side-menu {
-    display: none;
-}
-
-.side-menu:checked~nav {
-    max-height: 100%;
-}
-
-.side-menu:checked~.hamb .hamb-line {
-    background: transparent;
-}
-
-.side-menu:checked~.hamb .hamb-line::before {
-    transform: rotate(-45deg);
-    top: 0;
-}
-
-.side-menu:checked~.hamb .hamb-line::after {
-    transform: rotate(45deg);
-    top: 0;
-}
-
-nav {
-    padding: 0 1rem;
-    display: grid;
-    place-items: center;
-
-    ul {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        display: grid;
-
-        li {
-            padding: 0;
-        }
-    }
-
-    >ul {
-        grid-auto-flow: column;
-
-        >li {
-            margin: 0 0.5rem;
-        }
-    }
-}
-
-// Clear native browser button styles
-.dropdown__title {
-    background-color: transparent;
-    border: none;
-    font-family: inherit;
-}
-
-nav {
-    >ul {
-        >li {
-
-            // All links contained in the li
-            a,
-            .dropdown__title {
-                text-decoration: none;
-                text-align: center;
-                display: inline-block;
-                color: blue;
-                font-size: 1.125rem;
-            }
-
-            // Only direct links contained in the li
-            >a,
-            .dropdown__title {
-                padding: 1rem 0.5rem;
-            }
-        }
-    }
-}
-
-.dropdown {
-    position: relative;
-
-    .dropdown__menu {
-        background-color: #fff;
-        border-radius: 4px;
-        box-shadow: 0 0.15em 0.25em rgba(black, 0.25);
-        padding: 0.5em 0;
-        min-width: 15ch;
-
-        z-index: 99;
-
-        position: absolute;
-        // Pull up to overlap the parent list item very slightly
-        top: calc(100% - 0.25rem);
-        // Use the left from absolute position to shift the left side
-        left: 50%;
-        // Use translateX to shift the menu 50% of it's width back to the left
-        transform: translateX(-50%);
-
-        transform: rotateX(-90deg) translateX(-50%);
-        transform-origin: top center;
-        opacity: 0.3;
-        visibility: hidden;
-        transition: 280ms all 120ms ease-out;
-        
-
-        a {
-            color: #444;
-            display: block;
-            padding: 0.5em;
-        }
-    }
-
-    .dropdown__title {
-        display: inline-flex;
-        align-items: center;
-
-        &:after {
-            content: "";
-            border: 0.35rem solid transparent;
-            border-top-color: rgba(blue, 0.45);
-            margin-left: 0.25em;
-            transform: translateY(0.15em);
-        }
-    }
-
-    &:hover,
-    &:focus-within {
-        .dropdown__menu {
-            opacity: 1;
-            transform: rotateX(0) translateX(-50%);
-            visibility: visible;
-        }
-    }
 }
 
 .footer {

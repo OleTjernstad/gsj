@@ -1,0 +1,102 @@
+.header {
+    .hamburger {
+        background-color: transparent;
+        border: none;
+        font-family: inherit;
+        padding: 20px 20px;
+
+        span {
+            background: black;
+            display: block;
+            height: 2px;
+            position: relative;
+            width: 24px;
+        }
+
+        span::before,
+        span::after {
+            background: black;
+            content: '';
+            display: block;
+            height: 100%;
+            position: absolute;
+            transition: all .2s ease-out;
+            width: 100%;
+        }
+
+        span::before {
+            top: 5px;
+        }
+
+        span::after {
+            top: -5px;
+        }
+
+        .active {
+            background: transparent;
+        }
+
+        .active::before {
+            transform: rotate(-45deg);
+            top: 0;
+        }
+
+        .active::after {
+            transform: rotate(45deg);
+            top: 0;
+        }
+    }
+
+}
+
+nav {
+    >ul {
+        transition: 280ms all 120ms ease-out;
+        list-style: none;
+
+        a {
+            display: block;
+            padding: 0.75rem;
+            color: var(--white);
+        }
+    
+        a:hover {
+            background-color: var(--gray);
+        }
+    }
+}
+
+// Small screen
+@media (max-width: 768px) {
+    nav {
+        >ul {
+            width: 100vw;
+            background-color: whitesmoke;
+            position: fixed;
+            top: var(--app-header-size);
+            left: 0;
+            opacity: 0.3;
+            visibility: hidden;
+            text-align: center;
+        }
+
+        .active {
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+}
+
+// Big screen
+@media (min-width: 768px) {
+    nav {
+        >ul {
+            display: flex;
+            flex-direction: row;
+        }
+    }
+
+    .hamburger {
+        display: none;
+    }
+}
