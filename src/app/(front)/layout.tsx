@@ -9,8 +9,26 @@ export default function FrontLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="container">
+    <>
       <header className="header">
+        <a href="#">
+          <Image
+            src={logo}
+            alt="Glommasvingen logo"
+            style={{
+              objectFit: "contain",
+              height: "3rem",
+              width: "8rem",
+              display: "inline-block",
+            }}
+          />
+        </a>
+
+        <input className="side-menu" type="checkbox" id="side-menu" />
+        <label className="hamb" htmlFor="side-menu">
+          <span className="hamb-line"></span>
+        </label>
+
         <nav aria-label="Main Navigation">
           <ul>
             <li>
@@ -46,12 +64,11 @@ export default function FrontLayout({
             </li>
           </ul>
         </nav>
-        {/* <div className="logo-container">
-          <Image src={logo} alt="Glommasvingen logo" height={60} />
-        </div> */}
       </header>
-      {children}
-      <footer className="footer">&copy; Footer Example</footer>
-    </div>
+      <div className="container">
+        {children}
+        <footer className="footer">&copy; Footer Example</footer>
+      </div>
+    </>
   );
 }
