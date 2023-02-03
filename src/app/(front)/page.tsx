@@ -23,13 +23,15 @@ export default function Home() {
           Det lokale korpset for Kongsvinger og Sør-Odal
         </h2>
       </section>
-      <h2>Glommasvingen Janitsjar</h2>
-      <p>
-        det lokale korpset for Kongsvinger og Sør-Odal. Vi øver onsdager på
-        Skarnes Videregående skole. I tillegg kommer enkelte seminarer og
-        ekstraøvelser i forbindelse med konserter. Vi er rundt 25 medlemmer, men
-        vi mangler akkurat deg!!
-      </p>
+      <article className={styles.article}>
+        <h2>Glommasvingen Janitsjar</h2>
+        <p>
+          det lokale korpset for Kongsvinger og Sør-Odal. Vi øver onsdager på
+          Skarnes Videregående skole. I tillegg kommer enkelte seminarer og
+          ekstraøvelser i forbindelse med konserter. Vi er rundt 25 medlemmer,
+          men vi mangler akkurat deg!!
+        </p>
+      </article>
     </main>
   );
 }

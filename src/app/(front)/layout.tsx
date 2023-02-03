@@ -1,6 +1,7 @@
 import "./front.scss";
 
 import Image from "next/image";
+import Link from "next/link";
 import { MainMenu } from "./components/mainMenu";
 import logo from "../../../public/gsj-logo.png";
 
@@ -12,7 +13,7 @@ export default function FrontLayout({
   return (
     <>
       <header className="header">
-        <a href="#">
+        <Link href="/">
           <Image
             src={logo}
             alt="Glommasvingen logo"
@@ -23,7 +24,7 @@ export default function FrontLayout({
               display: "inline-block",
             }}
           />
-        </a>
+        </Link>
 
         <MainMenu />
       </header>
