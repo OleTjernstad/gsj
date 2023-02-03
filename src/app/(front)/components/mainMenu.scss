@@ -63,7 +63,7 @@
         transform: rotateX(-90deg) translateX(0%);
         // transform-origin: top center;
         opacity: 0.3;
-        transition: 280ms all 120ms ease-out;
+        transition: all 280ms ease-in 120ms;
         height: 10;
 
         a {
@@ -82,6 +82,7 @@
     .dropdown__active {
         opacity: 1;
         transform: rotateX(0) translateX(0%);
+        transition: all 280ms ease-out 120ms;
         visibility: visible;
     }
     
@@ -92,7 +93,7 @@ nav {
         list-style: none;
     }
     >ul {
-        transition: 280ms all 120ms ease-out;
+        transition:  all 280ms ease-out 120ms;
        
         a, .dropdown__title {
             text-decoration: none;
@@ -131,12 +132,14 @@ nav {
 
     .dropdown {
         .dropdown__menu {
-            height: 0;
+            max-height: 0;
+            transition: all 0.15s ease-out 110ms;
             padding: 0em 0;
         }
 
         .dropdown__active {
-           height: fit-content;
+            max-height: 500px;
+            transition: all 0.25s ease-in 110ms;
         }
     }
 }
