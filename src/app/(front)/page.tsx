@@ -5,10 +5,7 @@ export default function Home() {
     <main>
       <section className={styles.wrapper}>
         <video width="100%" autoPlay muted loop id="myVideo">
-          <source
-            src="https://glommasvingen.no/wp-content/uploads/2020/02/Do-you-hear-slutt.mp4"
-            type="video/mp4"
-          />
+          <source src="/Do-you-hear-slutt.mp4" type="video/mp4" />
           Your browser does not support HTML5 video.
         </video>
         <h1
@@ -26,10 +23,13 @@ export default function Home() {
           Det lokale korpset for Kongsvinger og Sør-Odal
         </h2>
       </section>
-      Glommasvingen Janitsjar det lokale korpset for Kongsvinger og Sør-Odal. Vi
-      øver onsdager på Skarnes Videregående skole. I tillegg kommer enkelte
-      seminarer og ekstraøvelser i forbindelse med konserter. Vi er rundt 25
-      medlemmer, men vi mangler akkurat deg!!
+      <h2>Glommasvingen Janitsjar</h2>
+      <p>
+        det lokale korpset for Kongsvinger og Sør-Odal. Vi øver onsdager på
+        Skarnes Videregående skole. I tillegg kommer enkelte seminarer og
+        ekstraøvelser i forbindelse med konserter. Vi er rundt 25 medlemmer, men
+        vi mangler akkurat deg!!
+      </p>
     </main>
   );
 }
