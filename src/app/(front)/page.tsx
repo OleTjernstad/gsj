@@ -1,4 +1,5 @@
-import { Section } from "./components/section";
+import { PostListBox } from "../../components/post-list/postList";
+import { Section } from "../../components/section/section";
 import styles from "./page.module.css";
 
 export default function Home() {
@@ -35,6 +36,9 @@ export default function Home() {
               medlemmer, men vi mangler akkurat deg!!
             </p>
           </article>
+        </Section>
+        <Section>
+          <PostListBox />
         </Section>
       </div>
     </main>

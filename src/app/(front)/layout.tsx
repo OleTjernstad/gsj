@@ -2,7 +2,7 @@ import "./front.scss";
 
 import Image from "next/image";
 import Link from "next/link";
-import { MainMenu } from "./components/mainMenu";
+import { MainMenu } from "../../components/main-menu/mainMenu";
 import logo from "../../../public/gsj-logo.png";
 
 export default function FrontLayout({

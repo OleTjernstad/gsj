@@ -28,11 +28,11 @@
 }
 .videoSectionCenterTitle {
     font-size: 5rem;
-    font-size: clamp(1.5rem, 5vw, 6rem);
+    font-size: clamp(2rem, 9vw, 5rem);
 }
 .videoSectionCenterSubTitle {
     font-size: 1rem;
-    font-size: clamp(.8rem, 2.5vw, 1.2rem);
+    font-size: clamp(.75rem, 2vw, 1rem);
     top: 60%;
 }
 

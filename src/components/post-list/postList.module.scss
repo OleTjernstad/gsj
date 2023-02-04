@@ -1,0 +1,21 @@
+
+
+.article {
+    width: 90vw;
+    max-width: var(--page-section-container-max-width);
+    border: 1px solid red;
+    border-radius: 5px;
+
+    figure {
+        height: 20rem;
+        overflow: hidden;
+    }
+    
+    div {
+        padding: 10px;
+
+        h2 {
+ margin-top: 10px;
+        }
+    }
+} 
