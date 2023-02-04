@@ -24,6 +24,15 @@ export function PostListBox() {
           consectetur, adipisci velit...
         </p>
       </div>
+      <div className={styles.bottom}>
+        <div>
+          Av <a href="#">Forfatter</a>
+        </div>
+        <div className={styles.tags}>
+          <a href="#">Quisquam</a>
+          <a href="#">Dolorem</a>
+        </div>
+      </div>
     </article>
   );
 }
