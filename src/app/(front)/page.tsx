@@ -1,4 +1,4 @@
-import { TextBox } from "./components/textBox";
+import { Section } from "./components/section";
 import styles from "./page.module.css";
 
 export default function Home() {
@@ -24,17 +24,19 @@ export default function Home() {
           Det lokale korpset for Kongsvinger og Sør-Odal
         </h2>
       </section>
-      <TextBox>
-        <div className={styles.article}>
-          <h2>Glommasvingen Janitsjar</h2>
-          <p>
-            det lokale korpset for Kongsvinger og Sør-Odal. Vi øver onsdager på
-            Skarnes Videregående skole. I tillegg kommer enkelte seminarer og
-            ekstraøvelser i forbindelse med konserter. Vi er rundt 25 medlemmer,
-            men vi mangler akkurat deg!!
-          </p>
-        </div>
-      </TextBox>
+      <div className={styles.page}>
+        <Section>
+          <article>
+            <h2>Glommasvingen Janitsjar</h2>
+            <p>
+              det lokale korpset for Kongsvinger og Sør-Odal. Vi øver onsdager
+              på Skarnes Videregående skole. I tillegg kommer enkelte seminarer
+              og ekstraøvelser i forbindelse med konserter. Vi er rundt 25
+              medlemmer, men vi mangler akkurat deg!!
+            </p>
+          </article>
+        </Section>
+      </div>
     </main>
   );
 }

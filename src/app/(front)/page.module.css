@@ -36,6 +36,7 @@
     top: 60%;
 }
 
-.article {
-    padding: 15px;
+.page {
+    display: grid;
+    place-items: center;
 }
