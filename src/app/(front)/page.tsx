@@ -28,7 +28,6 @@ export default function Home() {
       <div className={styles.page}>
         <Section>
           <article>
-            <h2>Glommasvingen Janitsjar</h2>
             <p>
               det lokale korpset for Kongsvinger og Sør-Odal. Vi øver onsdager
               på Skarnes Videregående skole. I tillegg kommer enkelte seminarer
