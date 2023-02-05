@@ -7,6 +7,7 @@
     background-color: #f5f5f5;
     box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 4px -1px, rgba(0, 0, 0, 0.14) 0px 4px 5px 0px, rgba(0, 0, 0, 0.12) 0px 1px 10px 0px;
 
+    
     figure {
         position: relative;
         width: 100%;
@@ -15,7 +16,7 @@
         border-radius: 5px 5px 0 0;
     }
     
-    figure:after {
+    figure::after {
         position: absolute;
         top: 0;
         left: 0;
@@ -23,6 +24,23 @@
         height: 100%;
         content: '';
         background: linear-gradient(0deg, rgba(245, 245, 245, 1) 0%, rgba(243, 230, 251, 0) 80%);
+    }
+
+    >a:hover {
+        position: relative;
+        width: 100%;
+        height: auto;
+
+       
+        &::after {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            content: '';
+            background-color: #00000060;
+        }
     }
 
     div {
