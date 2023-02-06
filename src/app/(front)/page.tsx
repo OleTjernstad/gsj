@@ -1,8 +1,14 @@
+import { PortableText } from "@portabletext/react";
 import { PostListBox } from "../../components/post-list/postList";
 import { Section } from "../../components/section/section";
+import { client } from "@/sanity/client";
 import styles from "./page.module.css";
 
-export default function Home() {
+export default async function Home() {
+  const data = await getData();
+
+  console.log(data.body);
+
   return (
     <main>
       <section className={styles.wrapper}>
@@ -29,10 +35,7 @@ export default function Home() {
         <Section>
           <article>
             <p>
-              det lokale korpset for Kongsvinger og Sør-Odal. Vi øver onsdager
-              på Skarnes Videregående skole. I tillegg kommer enkelte seminarer
-              og ekstraøvelser i forbindelse med konserter. Vi er rundt 25
-              medlemmer, men vi mangler akkurat deg!!
+              <PortableText value={data.body} />
             </p>
           </article>
         </Section>
@@ -42,4 +45,20 @@ export default function Home() {
       </div>
     </main>
   );
+}
+
+export const revalidate = 604800; // revalidate every week
+
+async function getData(): Promise<{
+  _createdAt: string;
+  _id: string;
+  _rev: string;
+  _type: "page";
+  _updatedAt: string;
+  body: any[];
+  title: string;
+}> {
+  const data = await client.fetch(`*[_type == "page"][0]`);
+  console.log({ data, t: data.title });
+  return data;
 }
