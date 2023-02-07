@@ -1,7 +1,3 @@
-"use client";
-
-import "./mainMenu.scss";
-
 import { useState } from "react";
 
 export function MainMenu() {

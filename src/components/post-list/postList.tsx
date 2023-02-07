@@ -1,14 +1,26 @@
 import Image from "next/image";
-import img from "../../../public/Bilde1.jpg";
+import { client } from "@/sanity/client";
 import styles from "./postList.module.scss";
+import { useNextSanityImage } from "next-sanity-image";
 
-export function PostListBox() {
+interface PostListBoxProps {
+  title: string;
+  image: {
+    _type: string;
+    asset: {
+      _ref: string;
+      _type: string;
+    };
+  };
+}
+export function PostListBox({ title, image }: PostListBoxProps) {
+  const imageProps = useNextSanityImage(client, image);
   return (
     <article className={styles.article}>
       <a href="#">
         <figure>
           <Image
-            src={img}
+            {...imageProps}
             alt=""
             style={{
               width: "100%",
@@ -18,7 +30,7 @@ export function PostListBox() {
           />
         </figure>
         <div>
-          <h2>Lorem Ipsum</h2>
+          <h2>{title}</h2>
 
           <p>
             Neque porro quisquam est qui dolorem ipsum quia dolor sit amet,

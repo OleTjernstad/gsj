@@ -1,18 +1,15 @@
-:root {
-    --app-header-size: 3.5rem;
-    --app-footer-size: 6rem;
-    --page-section-container-max-width: 990px;
-}
+
 
 .container {
     /* max-width: 940px; */
     display: grid;
     margin-top: var(--app-header-size);
+
+    main {
+        min-height: calc(100vh - var(--app-header-size) - var(--app-footer-size));
+    }
 }
 
-main {
-    min-height: calc(100vh - var(--app-header-size) - var(--app-footer-size));
-}
 
 .header {
     height: var(--app-header-size);
@@ -29,15 +26,9 @@ main {
 
 }
 
-.logo {
-    display: inline-block;
-    height: calc(var(--app-header-size - 10px));
-    margin-left: 10px;
-}
-
 .footer {
     grid-column-start: 1;
-    /* grid-column-end: -1; */
+  
     height: var(--app-footer-size);
     background-color: white;
     box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 4px -1px, rgba(0, 0, 0, 0.14) 0px 4px 5px 0px, rgba(0, 0, 0, 0.12) 0px 1px 10px 0px;

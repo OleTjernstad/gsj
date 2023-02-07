@@ -1,9 +1,8 @@
-import "./front.scss";
-
 import Image from "next/image";
 import Link from "next/link";
 import { MainMenu } from "../../components/main-menu/mainMenu";
 import logo from "../../../public/gsj-logo.png";
+import styles from "./front.module.scss";
 
 export default function FrontLayout({
   children, // will be a page or nested layout
@@ -12,7 +11,7 @@ export default function FrontLayout({
 }) {
   return (
     <>
-      <header className="header">
+      <header className={styles.header}>
         <Link href="/">
           <Image
             src={logo}
@@ -28,9 +27,9 @@ export default function FrontLayout({
 
         <MainMenu />
       </header>
-      <div className="container">
+      <div className={styles.container}>
         {children}
-        <footer className="footer">&copy; Footer Example</footer>
+        <footer className={styles.footer}>&copy; Footer Example</footer>
       </div>
     </>
   );
