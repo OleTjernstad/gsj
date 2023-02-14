@@ -16,11 +16,18 @@ interface IPage {
 interface IPost {
   _id: string;
   author: { name: string };
-  categories: { slug: { _type: string; current: string }; title: string }[];
+  categories: ICategory[];
   mainImage: { _type: string; asset: { _ref: string; _type: string } };
   slug: { _type: string; current: string };
+  excerpt: any[];
   title: string;
 }
+
+export type ICategory = {
+  slug: { _type: string; current: string };
+  title: string;
+};
+
 interface HomeProps {
   page: IPage;
   posts: IPost[];
@@ -71,6 +78,8 @@ export default function Home({ page, posts }: HomeProps) {
                   title={post.title}
                   image={post.mainImage}
                   author={post.author.name}
+                  excerpt={post.excerpt}
+                  tags={post.categories}
                 />
               ))}
             </Section>
@@ -86,7 +95,7 @@ export const getStaticProps: GetStaticProps<HomeProps, {}> = async (
 ) => {
   const page = await client.fetch(`*[_type == "page"][0] {_id, body, title}`);
   const posts = await client.fetch(
-    `*[_type == "post"] {_id, author->{name}, categories[]->{title, slug},mainImage, slug, title, publishedAt } | order(publishedAt desc)`
+    `*[_type == "post"] {_id, author->{name}, categories[]->{title, slug},mainImage, slug, title, publishedAt, excerpt } | order(publishedAt desc)`
   );
 
   return {

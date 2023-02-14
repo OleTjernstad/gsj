@@ -1,4 +1,6 @@
+import { ICategory } from "@/pages";
 import Image from "next/image";
+import { PortableText } from "@portabletext/react";
 import { client } from "@/sanity/client";
 import styles from "./postList.module.scss";
 import { useNextSanityImage } from "next-sanity-image";
@@ -6,6 +8,8 @@ import { useNextSanityImage } from "next-sanity-image";
 interface PostListBoxProps {
   title: string;
   author: string;
+  excerpt: any[];
+  tags: ICategory[];
   image: {
     _type: string;
     asset: {
@@ -14,7 +18,13 @@ interface PostListBoxProps {
     };
   };
 }
-export function PostListBox({ title, image, author }: PostListBoxProps) {
+export function PostListBox({
+  title,
+  image,
+  author,
+  excerpt,
+  tags,
+}: PostListBoxProps) {
   const imageProps = useNextSanityImage(client, image);
   return (
     <article className={styles.article}>
@@ -33,10 +43,7 @@ export function PostListBox({ title, image, author }: PostListBoxProps) {
         <div>
           <h2>{title}</h2>
 
-          <p>
-            Neque porro quisquam est qui dolorem ipsum quia dolor sit amet,
-            consectetur, adipisci velit...
-          </p>
+          <PortableText value={excerpt} />
         </div>
       </a>
       <div className={styles.bottom}>
@@ -44,8 +51,11 @@ export function PostListBox({ title, image, author }: PostListBoxProps) {
           Av <a href="#">{author}</a>
         </div>
         <div className={styles.tags}>
-          <a href="#">Quisquam</a>
-          <a href="#">Dolorem</a>
+          {tags.map((tag) => (
+            <a key={tag.slug.current} href="#">
+              {tag.title}
+            </a>
+          ))}
         </div>
       </div>
     </article>
