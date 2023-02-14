@@ -1,12 +1,14 @@
-import { GetStaticProps, GetStaticPropsResult } from "next";
+import { useRef, useState } from "react";
 
 import FrontLayout from "@/layout/front/front";
+import { GetStaticProps } from "next";
 import Head from "next/head";
 import { PortableText } from "@portabletext/react";
 import { PostListBox } from "@/components/post-list/postList";
 import { Section } from "@/components/section/section";
+import { VideoSection } from "@/layout/video/section";
 import { client } from "@/sanity/client";
-import styles from "@/styles/frontPage.module.css";
+import styles from "@/styles/frontPage.module.scss";
 
 interface IPage {
   _id: string;
@@ -43,34 +45,14 @@ export default function Home({ page, posts }: HomeProps) {
       </Head>
       <FrontLayout>
         <main>
-          <section className={styles.wrapper}>
-            <video width="100%" autoPlay muted loop id="myVideo">
-              <source src="/Do-you-hear-slutt.mp4" type="video/mp4" />
-              Your browser does not support HTML5 video.
-            </video>
-            <h1
-              className={
-                styles.videoSectionCenter + " " + styles.videoSectionCenterTitle
-              }
-            >
-              Glommasvingen Janitsjar
-            </h1>
-            <h2
-              className={
-                styles.videoSectionCenter +
-                " " +
-                styles.videoSectionCenterSubTitle
-              }
-            >
-              Det lokale korpset for Kongsvinger og Sør-Odal
-            </h2>
-          </section>
+          <VideoSection />
           <div className={styles.page}>
             <Section>
               <article>
                 <PortableText value={page.body} />
               </article>
             </Section>
+
             <Section>
               {posts.map((post) => (
                 <PostListBox

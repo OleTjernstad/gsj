@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { MainMenu } from "../../components/main-menu/mainMenu";
+import { MainMenu } from "../main-menu/mainMenu";
 import logo from "../../../public/gsj-logo.png";
 import styles from "./front.module.scss";
 

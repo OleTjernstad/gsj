@@ -36,6 +36,21 @@
     top: 60%;
 }
 
+.controls {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 99;
+    
+
+    button {
+        color: #fff;
+        background-color: transparent;
+        border: none;
+        font-family: inherit;
+    }
+}
+
 .page {
     display: grid;
     place-items: center;

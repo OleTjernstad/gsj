@@ -1,5 +1,5 @@
 import "@/styles/globals.css";
-import "@/components/main-menu/mainMenu.scss";
+import "@/layout/main-menu/mainMenu.scss";
 
 import type { AppProps } from "next/app";
 
