@@ -5,6 +5,7 @@ import { useNextSanityImage } from "next-sanity-image";
 
 interface PostListBoxProps {
   title: string;
+  author: string;
   image: {
     _type: string;
     asset: {
@@ -13,7 +14,7 @@ interface PostListBoxProps {
     };
   };
 }
-export function PostListBox({ title, image }: PostListBoxProps) {
+export function PostListBox({ title, image, author }: PostListBoxProps) {
   const imageProps = useNextSanityImage(client, image);
   return (
     <article className={styles.article}>
@@ -39,8 +40,8 @@ export function PostListBox({ title, image }: PostListBoxProps) {
         </div>
       </a>
       <div className={styles.bottom}>
-        <div>
-          Av <a href="#">Forfatter</a>
+        <div className={styles.author}>
+          Av <a href="#">{author}</a>
         </div>
         <div className={styles.tags}>
           <a href="#">Quisquam</a>

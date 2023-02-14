@@ -70,6 +70,7 @@ export default function Home({ page, posts }: HomeProps) {
                   key={post._id}
                   title={post.title}
                   image={post.mainImage}
+                  author={post.author.name}
                 />
               ))}
             </Section>
