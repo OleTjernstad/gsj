@@ -52,10 +52,10 @@ export function VideoSection() {
       </h2>
       <div className={styles.controls}>
         <button onClick={() => setIsMuted(!isMuted)}>
-          <Icon path={isMuted ? mdiVolumeHigh : mdiVolumeMute} size={1.5} />
+          <Icon path={isMuted ? mdiVolumeHigh : mdiVolumeMute} size={1} />
         </button>
         <button onClick={handlePlayPause}>
-          <Icon path={isPaused ? mdiPlay : mdiPause} size={1.5} />
+          <Icon path={isPaused ? mdiPlay : mdiPause} size={1} />
         </button>
       </div>
     </section>

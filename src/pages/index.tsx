@@ -75,7 +75,9 @@ export default function Home({ page, posts }: HomeProps) {
 export const getStaticProps: GetStaticProps<HomeProps, {}> = async (
   context
 ) => {
-  const page = await client.fetch(`*[_type == "page"][0] {_id, body, title}`);
+  const page = await client.fetch(
+    `*[_type == "page" && title == 'Fremside'][0] {_id, body, title}`
+  );
   const posts = await client.fetch(
     `*[_type == "post"] {_id, author->{name}, categories[]->{title, slug},mainImage, slug, title, publishedAt, excerpt } | order(publishedAt desc)`
   );

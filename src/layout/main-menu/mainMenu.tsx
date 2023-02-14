@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { useState } from "react";
 
 export function MainMenu() {
@@ -10,9 +11,12 @@ export function MainMenu() {
 
       <ul className={isOpen ? "active" : ""}>
         <li>
-          <a href="#">Hjem</a>
+          <Link href="/">Hjem</Link>
         </li>
-        <DropDown title="Om oss" />
+        <DropDown
+          title="Korpset"
+          links={[{ title: "Om oss", url: "/about" }]}
+        />
         <li>
           <a href="#">Kontakt oss</a>
         </li>
@@ -21,7 +25,13 @@ export function MainMenu() {
   );
 }
 
-function DropDown({ title }: { title: string }) {
+function DropDown({
+  title,
+  links,
+}: {
+  title: string;
+  links: { title: string; url: string }[];
+}) {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <li className="dropdown">
@@ -31,7 +41,7 @@ function DropDown({ title }: { title: string }) {
         onClick={() => setIsOpen(!isOpen)}
         type="button"
         className="dropdown__title"
-        aria-expanded="false"
+        aria-expanded={isOpen}
         aria-controls={title.replace(/\s/gm, "-")}
       >
         {title}
@@ -42,42 +52,17 @@ function DropDown({ title }: { title: string }) {
         className={`dropdown__menu ${isOpen ? "dropdown__active" : ""}`}
         id={title.replace(/\s/gm, "-")}
       >
-        <li>
-          <a
-            tabIndex={!isOpen ? -1 : undefined}
-            onClick={() => setIsOpen(!isOpen)}
-            href="#"
-          >
-            Donuts
-          </a>
-        </li>
-        <li>
-          <a
-            tabIndex={!isOpen ? -1 : undefined}
-            onClick={() => setIsOpen(!isOpen)}
-            href="#"
-          >
-            Cupcakes
-          </a>
-        </li>
-        <li>
-          <a
-            tabIndex={!isOpen ? -1 : undefined}
-            onClick={() => setIsOpen(!isOpen)}
-            href="#"
-          >
-            Chocolate
-          </a>
-        </li>
-        <li>
-          <a
-            tabIndex={!isOpen ? -1 : undefined}
-            onClick={() => setIsOpen(!isOpen)}
-            href="#"
-          >
-            Bonbons
-          </a>
-        </li>
+        {links.map((link) => (
+          <li key={link.url}>
+            <Link
+              tabIndex={!isOpen ? -1 : undefined}
+              onClick={() => setIsOpen(!isOpen)}
+              href={link.url}
+            >
+              {link.title}
+            </Link>
+          </li>
+        ))}
       </ul>
     </li>
   );
