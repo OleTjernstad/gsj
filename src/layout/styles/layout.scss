@@ -1,6 +1,6 @@
 
 
-.container {
+.app-container {
     /* max-width: 940px; */
     display: grid;
     margin-top: var(--app-header-size);
@@ -11,7 +11,7 @@
 }
 
 
-.header {
+.app-header {
     height: var(--app-header-size);
     padding: .47rem;
     background-color: white;
@@ -26,7 +26,7 @@
 
 }
 
-.footer {
+.app-footer {
     grid-column-start: 1;
   
     height: var(--app-footer-size);
@@ -35,7 +35,12 @@
 }
 
 @media (max-width: 800px) {
-    .container {
+    .app-container {
         grid-template-columns: none;
     }
+}
+
+.page-center-grid {
+    display: grid;
+    justify-items: center;
 }

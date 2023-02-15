@@ -3,16 +3,18 @@ import Link from "next/link";
 import { MainMenu } from "../main-menu/mainMenu";
 import { PortableText } from "@portabletext/react";
 import logo from "../../../public/gsj-logo.png";
-import styles from "../front/front.module.scss";
+import pageStyles from "./page.module.scss";
 
 export default function PageLayout({
   children, // will be a page or nested layout
+  title,
 }: {
   children: any[];
+  title: string;
 }) {
   return (
     <>
-      <header className={styles.header}>
+      <header className="app-header">
         <Link href="/">
           <Image
             src={logo}
@@ -28,13 +30,14 @@ export default function PageLayout({
 
         <MainMenu />
       </header>
-      <div className={styles.container}>
-        <main>
-          <div className={styles.page}>
+      <div className="app-container">
+        <main className="page-center-grid">
+          <article className={pageStyles.article}>
+            <h1>{title}</h1>
             <PortableText value={children} />
-          </div>
+          </article>
         </main>
-        <footer className={styles.footer}>&copy; Footer Example</footer>
+        <footer className="app-footer">&copy; Footer Example</footer>
       </div>
     </>
   );

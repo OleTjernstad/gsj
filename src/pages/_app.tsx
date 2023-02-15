@@ -1,4 +1,5 @@
 import "@/styles/globals.css";
+import "@/layout/styles/layout.scss";
 import "@/layout/main-menu/mainMenu.scss";
 
 import type { AppProps } from "next/app";

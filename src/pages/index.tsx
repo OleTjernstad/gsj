@@ -8,7 +8,6 @@ import { PostListBox } from "@/components/post-list/postList";
 import { Section } from "@/components/section/section";
 import { VideoSection } from "@/layout/video/section";
 import { client } from "@/sanity/client";
-import styles from "@/styles/frontPage.module.scss";
 
 interface IPage {
   _id: string;
@@ -46,7 +45,7 @@ export default function Home({ page, posts }: HomeProps) {
       <FrontLayout>
         <main>
           <VideoSection />
-          <div className={styles.page}>
+          <div className="page-center-grid">
             <Section>
               <article>
                 <PortableText value={page.body} />

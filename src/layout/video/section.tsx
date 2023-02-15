@@ -2,7 +2,7 @@ import { mdiPause, mdiPlay, mdiVolumeHigh, mdiVolumeMute } from "@mdi/js";
 import { useRef, useState } from "react";
 
 import Icon from "@mdi/react";
-import styles from "@/styles/frontPage.module.scss";
+import styles from "./video.module.scss";
 
 export function VideoSection() {
   const [isMuted, setIsMuted] = useState<boolean>(true);

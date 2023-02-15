@@ -8,7 +8,6 @@ import { PostListBox } from "@/components/post-list/postList";
 import { Section } from "@/components/section/section";
 import { VideoSection } from "@/layout/video/section";
 import { client } from "@/sanity/client";
-import styles from "@/styles/frontPage.module.scss";
 
 interface IPage {
   _id: string;
@@ -30,7 +29,7 @@ export default function About({ page }: AboutProps) {
       <Head>
         <title>Glommasvingen Janitsjar - Om oss</title>
       </Head>
-      <PageLayout>{page.body}</PageLayout>
+      <PageLayout title={page.title}>{page.body}</PageLayout>
     </>
   );
 }
