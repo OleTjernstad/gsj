@@ -1,12 +1,6 @@
-import { useRef, useState } from "react";
-
 import { GetStaticProps } from "next";
 import Head from "next/head";
-import PageLayout from "@/layout/page/main";
-import { PortableText } from "@portabletext/react";
-import { PostListBox } from "@/components/post-list/postList";
-import { Section } from "@/components/section/section";
-import { VideoSection } from "@/layout/video/section";
+import PageLayout from "@/layout/page";
 import { client } from "@/sanity/client";
 
 interface IPage {

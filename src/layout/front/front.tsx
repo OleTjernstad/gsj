@@ -1,7 +1,4 @@
-import Image from "next/image";
-import Link from "next/link";
-import { MainMenu } from "../main-menu/mainMenu";
-import logo from "../../../public/gsj-logo.png";
+import { Header } from "../header";
 
 export default function FrontLayout({
   children, // will be a page or nested layout
@@ -10,22 +7,7 @@ export default function FrontLayout({
 }) {
   return (
     <>
-      <header className="app-header">
-        <Link href="/">
-          <Image
-            src={logo}
-            alt="Glommasvingen logo"
-            style={{
-              objectFit: "contain",
-              height: "3rem",
-              width: "8rem",
-              display: "inline-block",
-            }}
-          />
-        </Link>
-
-        <MainMenu />
-      </header>
+      <Header />
       <div className="app-container">
         {children}
         <footer className="app-footer">&copy; Footer Example</footer>

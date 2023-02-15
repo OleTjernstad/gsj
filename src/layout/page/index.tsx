@@ -1,8 +1,5 @@
-import Image from "next/image";
-import Link from "next/link";
-import { MainMenu } from "../main-menu/mainMenu";
+import { Header } from "../header";
 import { PortableText } from "@portabletext/react";
-import logo from "../../../public/gsj-logo.png";
 import pageStyles from "./page.module.scss";
 
 export default function PageLayout({
@@ -14,22 +11,7 @@ export default function PageLayout({
 }) {
   return (
     <>
-      <header className="app-header">
-        <Link href="/">
-          <Image
-            src={logo}
-            alt="Glommasvingen logo"
-            style={{
-              objectFit: "contain",
-              height: "3rem",
-              width: "8rem",
-              display: "inline-block",
-            }}
-          />
-        </Link>
-
-        <MainMenu />
-      </header>
+      <Header />
       <div className="app-container">
         <main className="page-center-grid">
           <article className={pageStyles.article}>
