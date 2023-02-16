@@ -8,6 +8,7 @@ import { PostListBox } from "@/components/post-list/postList";
 import { Section } from "@/components/section/section";
 import { VideoSection } from "@/layout/video/section";
 import { client } from "@/sanity/client";
+import { groq } from "next-sanity";
 
 interface IPage {
   _id: string;
@@ -16,7 +17,7 @@ interface IPage {
 }
 interface IPost {
   _id: string;
-  author: { name: string };
+  author: { name: string; slug: { _type: string; current: string } };
   categories: ICategory[];
   mainImage: { _type: string; asset: { _ref: string; _type: string } };
   slug: { _type: string; current: string };
@@ -62,6 +63,7 @@ export default function Home({ page, posts }: HomeProps) {
                   excerpt={post.excerpt}
                   tags={post.categories}
                   slug={post.slug.current}
+                  authorSlug={post.author.slug}
                 />
               ))}
             </Section>
@@ -76,10 +78,10 @@ export const getStaticProps: GetStaticProps<HomeProps, {}> = async (
   context
 ) => {
   const page = await client.fetch(
-    `*[_type == "page" && title == 'Fremside'][0] {_id, body, title}`
+    groq`*[_type == "page" && title == 'Fremside'][0] {_id, body, title}`
   );
   const posts = await client.fetch(
-    `*[_type == "post"] {_id, author->{name}, categories[]->{title, slug},mainImage, slug, title, publishedAt, excerpt } | order(publishedAt desc)`
+    groq`*[_type == "post"] {_id, author->{name, slug}, categories[]->{title, slug},mainImage, slug, title, publishedAt, excerpt } | order(publishedAt desc)`
   );
 
   return {

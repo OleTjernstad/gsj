@@ -1,6 +1,5 @@
 import { GetStaticProps } from "next";
 import Head from "next/head";
-import PageLayout from "@/layout/page";
 import PostLayout from "@/layout/post";
 import { client } from "@/sanity/client";
 import { groq } from "next-sanity";

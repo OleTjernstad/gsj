@@ -9,6 +9,7 @@ import { useNextSanityImage } from "next-sanity-image";
 interface PostListBoxProps {
   title: string;
   author: string;
+  authorSlug: { _type: string; current: string };
   excerpt: any[];
   tags: ICategory[];
   image: {
@@ -27,6 +28,7 @@ export function PostListBox({
   excerpt,
   tags,
   slug,
+  authorSlug,
 }: PostListBoxProps) {
   const imageProps = useNextSanityImage(client, image);
   return (
@@ -51,13 +53,13 @@ export function PostListBox({
       </Link>
       <div className={styles.bottom}>
         <div className={styles.author}>
-          Av <a href="#">{author}</a>
+          Av <Link href={`/author/${authorSlug.current}`}>{author}</Link>
         </div>
         <div className={styles.tags}>
           {tags.map((tag) => (
-            <a key={tag.slug.current} href="#">
+            <Link key={tag.slug.current} href={`/category/${tag.slug.current}`}>
               {tag.title}
-            </a>
+            </Link>
           ))}
         </div>
       </div>
