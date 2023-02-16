@@ -61,6 +61,7 @@ export default function Home({ page, posts }: HomeProps) {
                   author={post.author.name}
                   excerpt={post.excerpt}
                   tags={post.categories}
+                  slug={post.slug.current}
                 />
               ))}
             </Section>

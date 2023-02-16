@@ -3,6 +3,7 @@ import Head from "next/head";
 import PageLayout from "@/layout/page";
 import PostLayout from "@/layout/post";
 import { client } from "@/sanity/client";
+import { groq } from "next-sanity";
 
 interface IPost {
   _id: string;
@@ -28,7 +29,7 @@ export default function About({ post }: PostProps) {
   return (
     <>
       <Head>
-        <title>Glommasvingen Janitsjar - {post.title}</title>
+        <title>{`Glommasvingen Janitsjar - ${post.title}`}</title>
       </Head>
       <PostLayout
         excerpt={post.excerpt}
@@ -43,11 +44,14 @@ export default function About({ post }: PostProps) {
   );
 }
 
-export const getStaticProps: GetStaticProps<PostProps, {}> = async (
-  context
-) => {
+export const getStaticProps: GetStaticProps<
+  PostProps,
+  { slug: string }
+> = async (context) => {
+  const slug = context.params?.slug;
   const post = await client.fetch(
-    `*[_type == "post"] {_id, author->{name}, categories[]->{title, slug},mainImage, slug, title, publishedAt, excerpt, body } | order(publishedAt desc)[0]`
+    groq`*[_type == "post" && slug.current == $slug] {_id, author->{name}, categories[]->{title, slug},mainImage, slug, title, publishedAt, excerpt, body } | order(publishedAt desc)[0]`,
+    { slug }
   );
 
   return {
@@ -56,3 +60,18 @@ export const getStaticProps: GetStaticProps<PostProps, {}> = async (
     },
   };
 };
+
+export async function getStaticPaths() {
+  const posts: IPost[] = await client.fetch(
+    groq`*[_type == "post" && publishedAt < now()]|order(publishedAt desc)`
+  );
+
+  const paths = posts.map((post) => {
+    return { params: { slug: post.slug.current } };
+  });
+
+  return {
+    paths,
+    fallback: false,
+  };
+}

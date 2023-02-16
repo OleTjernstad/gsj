@@ -1,5 +1,6 @@
 import { ICategory } from "@/pages";
 import Image from "next/image";
+import Link from "next/link";
 import { PortableText } from "@portabletext/react";
 import { client } from "@/sanity/client";
 import styles from "./postList.module.scss";
@@ -17,6 +18,7 @@ interface PostListBoxProps {
       _type: string;
     };
   };
+  slug: string;
 }
 export function PostListBox({
   title,
@@ -24,11 +26,12 @@ export function PostListBox({
   author,
   excerpt,
   tags,
+  slug,
 }: PostListBoxProps) {
   const imageProps = useNextSanityImage(client, image);
   return (
     <article className={styles.article}>
-      <a href="#">
+      <Link href={`/post/${slug}`}>
         <figure>
           <Image
             {...imageProps}
@@ -45,7 +48,7 @@ export function PostListBox({
 
           <PortableText value={excerpt} />
         </div>
-      </a>
+      </Link>
       <div className={styles.bottom}>
         <div className={styles.author}>
           Av <a href="#">{author}</a>
