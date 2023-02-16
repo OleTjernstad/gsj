@@ -31,9 +31,11 @@ export default function About({ post }: PostProps) {
         <title>Glommasvingen Janitsjar - {post.title}</title>
       </Head>
       <PostLayout
+        excerpt={post.excerpt}
         title={post.title}
         author={post.author.name}
         publishedAt={post.publishedAt}
+        mainImage={post.mainImage}
       >
         {post.body}
       </PostLayout>

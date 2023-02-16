@@ -1,0 +1,26 @@
+
+.article {
+    max-width: var(--page-section-container-max-width);
+    padding: 15px;
+
+}
+
+.excerpt {
+    padding-top: 15px;
+    padding-bottom: 10px;
+    font-weight: bold;
+}
+
+.meta {
+    font-size: 0.75rem;
+    font-style: italic;
+    padding-bottom: 15px;
+
+    span {
+        padding-right: 20px;
+    }
+}
+
+.mainImage {
+    padding-bottom: 10px;
+}
