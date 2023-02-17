@@ -15,7 +15,10 @@ export function MainMenu() {
         </li>
         <DropDown
           title="Korpset"
-          links={[{ title: "Om oss", url: "/about" }]}
+          links={[
+            { title: "Om oss", url: "/about" },
+            { title: "Historie", url: "/about/history" },
+          ]}
         />
         <li>
           <a href="#">Kontakt oss</a>

@@ -3,6 +3,7 @@ import { Header } from "../header";
 import Image from "next/image";
 import { PortableText } from "@portabletext/react";
 import { client } from "@/sanity/client";
+import { myPortableTextComponents } from "@/components/sanityImage";
 import styles from "./post.module.scss";
 import { useNextSanityImage } from "next-sanity-image";
 
@@ -56,7 +57,10 @@ export default function PostLayout({
             <div className={styles.excerpt}>
               <PortableText value={excerpt} />
             </div>
-            <PortableText value={children} />
+            <PortableText
+              value={children}
+              components={myPortableTextComponents}
+            />
           </article>
         </main>
         <footer className="app-footer">&copy; Footer Example</footer>

@@ -1,5 +1,6 @@
 import { Header } from "../header";
 import { PortableText } from "@portabletext/react";
+import { myPortableTextComponents } from "@/components/sanityImage";
 import pageStyles from "./page.module.scss";
 
 export default function PageLayout({
@@ -16,7 +17,10 @@ export default function PageLayout({
         <main className="page-center-grid">
           <article className={pageStyles.article}>
             <h1>{title}</h1>
-            <PortableText value={children} />
+            <PortableText
+              value={children}
+              components={myPortableTextComponents}
+            />
           </article>
         </main>
         <footer className="app-footer">&copy; Footer Example</footer>
