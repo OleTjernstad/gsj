@@ -18,7 +18,7 @@ export default function History({ page }: HistoryProps) {
       <Head>
         <title>Glommasvingen Janitsjar - Historie</title>
       </Head>
-      <PageLayout title={page.title}>{page.body}</PageLayout>
+      <PageLayout title={page.title} portableText={page.body} />
     </>
   );
 }

@@ -1,0 +1,19 @@
+
+.input-container {
+    width: auto;
+    *,
+    *:before,
+    *:after {
+        box-sizing: border-box;
+    }
+
+    input[type=text] {
+        padding: 10px;
+        margin: 10px 0; // add top and bottom margin
+        border: 0; // remove default border
+        border-bottom: 1px solid #585858; // add only bottom border
+        box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
+        border-radius: 2px;
+        width: 100%;
+    }
+}

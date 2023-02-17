@@ -18,7 +18,7 @@ export default function Dirigenten({ page }: DirigentenProps) {
       <Head>
         <title>Glommasvingen Janitsjar - Historie</title>
       </Head>
-      <PageLayout title={page.title}>{page.body}</PageLayout>
+      <PageLayout title={page.title} portableText={page.body} />
     </>
   );
 }

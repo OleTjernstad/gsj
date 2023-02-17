@@ -23,7 +23,7 @@ export default function About({ page }: AboutProps) {
       <Head>
         <title>Glommasvingen Janitsjar - Om oss</title>
       </Head>
-      <PageLayout title={page.title}>{page.body}</PageLayout>
+      <PageLayout title={page.title} portableText={page.body} />
     </>
   );
 }

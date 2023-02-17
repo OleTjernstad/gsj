@@ -22,7 +22,16 @@ export function MainMenu() {
           ]}
         />
         <li>
-          <a href="#">Kontakt oss</a>
+          <a
+            target="_blank"
+            rel="noreferrer"
+            href="https://www.norsk-tipping.no/grasrotandelen/din-mottaker/993822280"
+          >
+            Grasrotandelen
+          </a>
+        </li>
+        <li>
+          <Link href="/contact">Kontakt oss</Link>
         </li>
       </ul>
     </nav>

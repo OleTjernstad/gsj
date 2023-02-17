@@ -5,22 +5,30 @@ import pageStyles from "./page.module.scss";
 
 export default function PageLayout({
   children, // will be a page or nested layout
+  portableText,
   title,
 }: {
-  children: any[];
+  children?: React.ReactNode;
+  portableText?: any[];
   title: string;
 }) {
   return (
     <>
       <Header />
       <div className="app-container">
-        <main className="page-center-grid">
+        <main className={"page-center-grid " + pageStyles.container}>
           <article className={pageStyles.article}>
-            <h1>{title}</h1>
-            <PortableText
-              value={children}
-              components={myPortableTextComponents}
-            />
+            <>
+              <h1>{title}</h1>
+              {portableText ? (
+                <PortableText
+                  value={portableText}
+                  components={myPortableTextComponents}
+                />
+              ) : children ? (
+                children
+              ) : null}
+            </>
           </article>
         </main>
         <footer className="app-footer">&copy; Footer Example</footer>
