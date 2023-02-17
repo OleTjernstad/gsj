@@ -18,6 +18,7 @@ export function MainMenu() {
           links={[
             { title: "Om oss", url: "/about" },
             { title: "Historie", url: "/about/history" },
+            { title: "Dirigenten", url: "/about/dirigenten" },
           ]}
         />
         <li>
