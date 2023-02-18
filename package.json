@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@marsidev/react-turnstile": "^0.0.7",
     "@mdi/js": "^7.1.96",
     "@mdi/react": "^1.6.1",
     "@next/font": "13.1.6",

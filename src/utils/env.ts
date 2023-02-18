@@ -9,6 +9,10 @@ export const projectId = assertValue(
   process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
   "Missing environment variable: NEXT_PUBLIC_SANITY_PROJECT_ID"
 );
+export const turnStileSiteKey = assertValue(
+  process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY,
+  "Missing environment variable: NEXT_PUBLIC_TURNSTILE_SITE_KEY"
+);
 
 export const readToken = process.env.SANITY_API_READ_TOKEN;
 

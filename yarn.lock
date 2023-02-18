@@ -43,6 +43,11 @@
   resolved "https://registry.yarnpkg.com/@humanwhocodes/object-schema/-/object-schema-1.2.1.tgz#b520529ec21d8e5945a1851dfd1c32e94e39ff45"
   integrity sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==
 
+"@marsidev/react-turnstile@^0.0.7":
+  version "0.0.7"
+  resolved "https://registry.yarnpkg.com/@marsidev/react-turnstile/-/react-turnstile-0.0.7.tgz#abfd543c28b634b66c9ab9b081d204b1fdda3e63"
+  integrity sha512-BWXZ6/ddE96cP/U3jkLO8wbJi6qOpE4wH67h6EkD57TRy4RSauBBYKRZkuUEpfgm2wdWoPukPz4LfnoV5KJGrQ==
+
 "@mdi/js@^7.1.96":
   version "7.1.96"
   resolved "https://registry.yarnpkg.com/@mdi/js/-/js-7.1.96.tgz#9c5a7f8a20ea63c03b09a0dba1768fe8b70eeaf9"
