@@ -1,6 +1,6 @@
 import { TextArea, TextInput } from "@/components/input/text-input";
 
-import { Button } from "@/components/input/button";
+import { Button } from "@/components/button";
 import Head from "next/head";
 import PageLayout from "@/layout/page";
 import { Turnstile } from "@marsidev/react-turnstile";
@@ -12,12 +12,16 @@ export default function Contact({}: ContactProps) {
   const [name, setName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [message, setMessage] = useState<string>("");
+  const [responseMessage, setResponseMessage] = useState<string>();
 
   const [token, setToken] = useState<string>("");
 
+  const [loading, setLoading] = useState<boolean>(false);
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // let isValidForm = handleValidation();
+    setLoading(true);
+
     const res = await fetch("/api/email", {
       body: JSON.stringify({
         email,
@@ -30,12 +34,33 @@ export default function Contact({}: ContactProps) {
       },
       method: "POST",
     });
-    const { error } = await res.json();
+    const { error, success } = await res.json();
     if (error) {
-      console.log(error);
+      switch (error) {
+        case "failedSending":
+          setResponseMessage(
+            "Vi kunne ikke sende eposten, beklager det hendelsen. Prøv gjerne igjen, evt. forsøk andre kontakt metoder"
+          );
+          break;
+        case "robot":
+          setResponseMessage(
+            "Vi kunne ikke tillate sending av eposten da vi ikke er helt sikker på om du er et menneske"
+          );
+          break;
+
+        default:
+          break;
+      }
+      setLoading(false);
       return;
     }
-    console.log(name, email, message);
+    if (success) {
+      setName("");
+      setEmail("");
+      setMessage("");
+      setResponseMessage(undefined);
+      setLoading(false);
+    }
   };
 
   return (
@@ -45,6 +70,9 @@ export default function Contact({}: ContactProps) {
       </Head>
       <PageLayout title="Kontakt oss">
         <form onSubmit={handleSubmit}>
+          {responseMessage ? (
+            <p aria-live="assertive">{responseMessage}</p>
+          ) : null}
           <TextInput
             label="Navn"
             name="name"
@@ -75,7 +103,7 @@ export default function Contact({}: ContactProps) {
               theme: "light",
             }}
           />
-          <Button label="Send" type="submit" />
+          <Button label="Send" type="submit" loading={loading} />
         </form>
       </PageLayout>
     </>

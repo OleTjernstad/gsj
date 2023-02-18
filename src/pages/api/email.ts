@@ -9,6 +9,7 @@ const endpoint = "https://challenges.cloudflare.com/turnstile/v0/siteverify";
 
 type Data = {
   error: string;
+  success?: boolean;
 };
 
 export default async function handler(
@@ -20,7 +21,7 @@ export default async function handler(
       turnstileSecretKey
     )}&response=${encodeURIComponent(req.body.token)}`;
 
-    const res = await fetch(endpoint, {
+    const turnstileRes = await fetch(endpoint, {
       method: "POST",
       body,
       headers: {
@@ -28,9 +29,12 @@ export default async function handler(
       },
     });
 
-    const jsonRes = await res.json();
+    const jsonRes = await turnstileRes.json();
+
+    if (!jsonRes.success) {
+      return res.status(400).json({ error: "robot" });
+    }
     if (jsonRes.success) {
-      // console.log("REQ.BODY", req.body);
       await sendGrid.send({
         to: "ole.tjernstad@glommasvingen.no", // Your email where you'll receive emails
         from: "post@mail.sluttkontroll.no", // your website email address here
@@ -77,8 +81,8 @@ export default async function handler(
     }
   } catch (error: any) {
     // console.log(error);
-    return res.status(error.statusCode || 500).json({ error: error.message });
+    return res.status(error.statusCode || 500).json({ error: "failedSending" });
   }
 
-  res.status(200).json({ error: "" });
+  res.status(200).json({ error: "", success: true });
 }
