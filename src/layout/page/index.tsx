@@ -16,7 +16,7 @@ export default function PageLayout({
     <>
       <Header />
       <div className="app-container">
-        <main className={"page-center-grid " + pageStyles.container}>
+        <main className="page-center-grid">
           <article className={pageStyles.article}>
             <>
               <h1>{title}</h1>

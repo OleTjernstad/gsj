@@ -1,14 +1,14 @@
 
 
-// .container {
-    .article {
-        max-width: var(--page-section-container-max-width);
-        padding: 15px;
-    }
 
-    // @media (max-width: var(--page-section-container-max-width)) {
-    //     .article {
-    //         background-color: red;
-    //     }
-    // }
-// }
+.article {
+    max-width: var(--page-section-container-max-width);
+    padding: 15px;
+    width: calc(100vw - 15px);
+}
+
+@media (min-width: 990px) {
+    .article {
+        width: var(--page-section-container-max-width);
+    }
+}
