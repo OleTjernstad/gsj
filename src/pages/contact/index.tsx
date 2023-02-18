@@ -11,13 +11,38 @@ export default function Contact({}: ContactProps) {
   const [name, setName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [message, setMessage] = useState<string>("");
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    // let isValidForm = handleValidation();
+
+    const res = await fetch("/api/email", {
+      body: JSON.stringify({
+        email,
+        name,
+        message,
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+      method: "POST",
+    });
+
+    const { error } = await res.json();
+    if (error) {
+      console.log(error);
+      return;
+    }
+    console.log(name, email, message);
+  };
+
   return (
     <>
       <Head>
         <title>Glommasvingen Janitsjar - Kontakt oss</title>
       </Head>
       <PageLayout title="Kontakt oss">
-        <form>
+        <form onSubmit={handleSubmit}>
           <TextInput
             label="Navn"
             name="name"

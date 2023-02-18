@@ -1,4 +1,4 @@
-import { apiVersion, dataset, projectId } from "./env";
+import { apiVersion, dataset, projectId } from "../utils/env";
 
 import { createClient } from "next-sanity";
 
