@@ -1,3 +1,4 @@
+import { Footer } from "../footer";
 import { Header } from "../header";
 import pageStyles from "./archive.module.scss";
 
@@ -18,7 +19,7 @@ export default function ArchiveLayout({
             {children}
           </article>
         </main>
-        <footer className="app-footer">&copy; Footer Example</footer>
+        <Footer />
       </div>
     </>
   );

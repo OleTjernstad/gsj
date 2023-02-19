@@ -30,8 +30,9 @@ export function VideoSection() {
         width="100%"
         autoPlay={!isPaused}
         muted={isMuted}
-        loop
+        // loop
         id="myVideo"
+        onPause={() => setIsPaused(true)}
       >
         <source src="/Do-you-hear-slutt.mp4" type="video/mp4" />
         Your browser does not support HTML5 video.

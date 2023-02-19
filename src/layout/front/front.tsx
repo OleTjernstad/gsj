@@ -1,3 +1,4 @@
+import { Footer } from "../footer";
 import { Header } from "../header";
 
 export default function FrontLayout({
@@ -10,7 +11,7 @@ export default function FrontLayout({
       <Header />
       <div className="app-container">
         {children}
-        <footer className="app-footer">&copy; Footer Example</footer>
+        <Footer />
       </div>
     </>
   );

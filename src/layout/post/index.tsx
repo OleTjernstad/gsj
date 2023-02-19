@@ -1,3 +1,4 @@
+import { Footer } from "../footer";
 import { FormattedDate } from "@/components/date";
 import { Header } from "../header";
 import Image from "next/image";
@@ -63,7 +64,7 @@ export default function PostLayout({
             />
           </article>
         </main>
-        <footer className="app-footer">&copy; Footer Example</footer>
+        <Footer />
       </div>
     </>
   );

@@ -1,3 +1,4 @@
+import { Footer } from "../footer";
 import { Header } from "../header";
 import { PortableText } from "@portabletext/react";
 import { myPortableTextComponents } from "@/components/sanityImage";
@@ -31,7 +32,7 @@ export default function PageLayout({
             </>
           </article>
         </main>
-        <footer className="app-footer">&copy; Footer Example</footer>
+        <Footer />
       </div>
     </>
   );
