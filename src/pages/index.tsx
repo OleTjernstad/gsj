@@ -3,6 +3,7 @@ import { useRef, useState } from "react";
 import FrontLayout from "@/layout/front/front";
 import { GetStaticProps } from "next";
 import Head from "next/head";
+import { MessengerChat } from "react-messenger-chat-plugin";
 import { PortableText } from "@portabletext/react";
 import { PostListBox } from "@/components/post-list/postList";
 import { Section } from "@/components/section/section";
@@ -69,6 +70,34 @@ export default function Home({ page, posts }: HomeProps) {
             </Section>
           </div>
         </main>
+        <MessengerChat
+          pageId="100063690333484"
+          language="nb_NO"
+          themeColor={"#000000"}
+          bottomSpacing={300}
+          loggedInGreeting="loggedInGreeting"
+          loggedOutGreeting="loggedOutGreeting"
+          greetingDialogDisplay={"show"}
+          debugMode={true}
+          onMessengerShow={() => {
+            console.log("onMessengerShow");
+          }}
+          onMessengerHide={() => {
+            console.log("onMessengerHide");
+          }}
+          onMessengerDialogShow={() => {
+            console.log("onMessengerDialogShow");
+          }}
+          onMessengerDialogHide={() => {
+            console.log("onMessengerDialogHide");
+          }}
+          onMessengerMounted={() => {
+            console.log("onMessengerMounted");
+          }}
+          onMessengerLoad={() => {
+            console.log("onMessengerLoad");
+          }}
+        />
       </FrontLayout>
     </>
   );
