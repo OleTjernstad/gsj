@@ -14,8 +14,8 @@
         /* usual styles */
         padding: 10px;
         border: none;
-        background-color: #3F51B5;
-        color: #fff;
+        background-color: var(--primary-color);
+        color: var(--primary-tint-90);
         font-weight: 600;
         border-radius: 5px;
         width: 100%;
@@ -32,25 +32,25 @@
     display: block;
     margin: 1px auto;
     position: relative;
-    background: #FFF;
-    box-shadow: -24px 0 #FFF, 24px 0 #FFF;
+    background: var(--primary-tint-90);
+    box-shadow: -24px 0 var(--primary-tint-90), 24px 0 var(--primary-tint-90);
     box-sizing: border-box;
     animation: shadowPulse 2s linear infinite;
 }
 
 @keyframes shadowPulse {
     33% {
-        background: #FFF;
-        box-shadow: -24px 0 #FF3D00, 24px 0 #FFF;
+        background: var(--primary-tint-90);
+        box-shadow: -24px 0 var(--primary-shade-80), 24px 0 var(--primary-tint-90);
     }
 
     66% {
-        background: #FF3D00;
-        box-shadow: -24px 0 #FFF, 24px 0 #FFF;
+        background: var(--primary-shade-80);
+        box-shadow: -24px 0 var(--primary-tint-90), 24px 0 var(--primary-tint-90);
     }
 
     100% {
-        background: #FFF;
-        box-shadow: -24px 0 #FFF, 24px 0 #FF3D00;
+        background: var(--primary-tint-90);
+        box-shadow: -24px 0 var(--primary-tint-90), 24px 0 var(--primary-shade-80);
     }
 }

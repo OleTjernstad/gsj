@@ -74,10 +74,10 @@ export default function Home({ page, posts }: HomeProps) {
       <MessengerChat
         pageId="112392728908765"
         language="nb_NO"
-        themeColor={"#000000"}
+        themeColor={"#63158d"}
         bottomSpacing={10}
-        loggedInGreeting="loggedInGreeting"
-        loggedOutGreeting="loggedOutGreeting"
+        loggedInGreeting="Noe vi kan hjelpe med?"
+        loggedOutGreeting=""
         greetingDialogDisplay={"hide"}
         debugMode={true}
         onMessengerShow={() => {

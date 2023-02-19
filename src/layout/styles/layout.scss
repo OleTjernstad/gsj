@@ -14,7 +14,7 @@
 .app-header {
     height: var(--app-header-size);
     padding: .47rem;
-    background-color: white;
+    background-color: var(--primary-tint-90);
     box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 4px -1px, rgba(0, 0, 0, 0.14) 0px 4px 5px 0px, rgba(0, 0, 0, 0.12) 0px 1px 10px 0px;
     position: fixed;
     top: 0;
@@ -30,13 +30,25 @@
     grid-column-start: 1;
   
     height: var(--app-footer-size);
-    background-color: white;
+    background-color: var(--primary-tint-80);
     box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 4px -1px, rgba(0, 0, 0, 0.14) 0px 4px 5px 0px, rgba(0, 0, 0, 0.12) 0px 1px 10px 0px;
-
+    color: var(--primary-shade-60);
     display: flex;
     padding: 15px;
     justify-content: space-around;
-            
+    
+    .copyright {
+        color: var(--primary-tint-60);
+        font-size: .75rem;
+    }
+
+    .company {
+        padding-bottom: 10px;
+    }
+
+    .address {
+    font-size: .85rem;
+    }
 }
 
 @media (max-width: 800px) {
