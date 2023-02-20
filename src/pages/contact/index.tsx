@@ -2,6 +2,7 @@ import { TextArea, TextInput } from "@/components/input/text-input";
 
 import { Button } from "@/components/button";
 import Head from "next/head";
+import { MessageBox } from "@/components/messageBox";
 import PageLayout from "@/layout/page";
 import { Turnstile } from "@marsidev/react-turnstile";
 import { turnStileSiteKey } from "@/utils/env";
@@ -13,6 +14,7 @@ export default function Contact({}: ContactProps) {
   const [email, setEmail] = useState<string>("");
   const [message, setMessage] = useState<string>("");
   const [responseMessage, setResponseMessage] = useState<string>();
+  const [isError, setIsError] = useState<boolean>(false);
 
   const [token, setToken] = useState<string>("");
 
@@ -36,6 +38,8 @@ export default function Contact({}: ContactProps) {
     });
     const { error, success } = await res.json();
     if (error) {
+      setIsError(true);
+
       switch (error) {
         case "failedSending":
           setResponseMessage(
@@ -47,6 +51,9 @@ export default function Contact({}: ContactProps) {
             "Vi kunne ikke tillate sending av eposten da vi ikke er helt sikker på om du er et menneske"
           );
           break;
+        case "missingData":
+          setResponseMessage("En eller flere av feltene er ikke fylt ut");
+          break;
 
         default:
           break;
@@ -55,10 +62,11 @@ export default function Contact({}: ContactProps) {
       return;
     }
     if (success) {
+      setIsError(false);
       setName("");
       setEmail("");
       setMessage("");
-      setResponseMessage(undefined);
+      setResponseMessage("Melding sendt");
       setLoading(false);
     }
   };
@@ -71,7 +79,7 @@ export default function Contact({}: ContactProps) {
       <PageLayout title="Kontakt oss">
         <form onSubmit={handleSubmit}>
           {responseMessage ? (
-            <p aria-live="assertive">{responseMessage}</p>
+            <MessageBox isError={isError} message={responseMessage} />
           ) : null}
           <TextInput
             label="Navn"

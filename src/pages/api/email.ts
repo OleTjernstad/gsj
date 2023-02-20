@@ -34,6 +34,9 @@ export default async function handler(
     if (!jsonRes.success) {
       return res.status(400).json({ error: "robot" });
     }
+    if (!req.body.email || !req.body.message || !req.body.name) {
+      return res.status(400).json({ error: "missingData" });
+    }
     if (jsonRes.success) {
       await sendGrid.send({
         to: "ole.tjernstad@glommasvingen.no", // Your email where you'll receive emails
