@@ -52,10 +52,16 @@ export function VideoSection() {
         Det lokale korpset for Kongsvinger og Sør-Odal
       </h2>
       <div className={styles.controls}>
-        <button onClick={() => setIsMuted(!isMuted)}>
+        <button
+          aria-label={isMuted ? "skru på lyden" : "mute lyden"}
+          onClick={() => setIsMuted(!isMuted)}
+        >
           <Icon path={isMuted ? mdiVolumeHigh : mdiVolumeMute} size={1} />
         </button>
-        <button onClick={handlePlayPause}>
+        <button
+          aria-label={isPaused ? "Spill video" : "Pause video"}
+          onClick={handlePlayPause}
+        >
           <Icon path={isPaused ? mdiPlay : mdiPause} size={1} />
         </button>
       </div>

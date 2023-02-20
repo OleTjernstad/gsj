@@ -5,7 +5,11 @@ export function MainMenu() {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <nav aria-label="Main Navigation">
-      <button className="hamburger" onClick={() => setIsOpen(!isOpen)}>
+      <button
+        aria-label="Hamburger meny"
+        className="hamburger"
+        onClick={() => setIsOpen(!isOpen)}
+      >
         <span className={isOpen ? "active" : ""}></span>
       </button>
 
