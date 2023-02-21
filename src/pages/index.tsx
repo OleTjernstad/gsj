@@ -71,7 +71,7 @@ export default function Home({ page, posts }: HomeProps) {
           </div>
         </main>
       </FrontLayout>
-      {/* <MessengerChat
+      <MessengerChat
         pageId="112392728908765"
         language="nb_NO"
         themeColor={"#63158d"}
@@ -98,7 +98,7 @@ export default function Home({ page, posts }: HomeProps) {
         onMessengerLoad={() => {
           console.log("onMessengerLoad");
         }}
-      /> */}
+      />
     </>
   );
 }
