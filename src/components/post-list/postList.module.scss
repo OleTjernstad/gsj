@@ -58,6 +58,10 @@
     justify-content: space-between;
     background-color: var(--primary-tint-80);
     border-radius: 0 0 5px 5px;
+
+    a:hover {
+        border-bottom: 2px solid var(--primary-color);
+    }
 }
 
 .author {
@@ -76,4 +80,16 @@
         margin-left: 15px;
         border-radius: 5px;
     }
+
+    a:focus {
+        background-color: var(--primary-tint-60);
+        color: var(--primary-shade-80)
+    }
+
+    a:hover {
+        background-color: var(--primary-shade-60);
+        color: var(--primary-tint-90);
+    }
+    
+   
  }

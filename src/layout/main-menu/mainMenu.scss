@@ -102,10 +102,11 @@ nav {
             // color: blue;
             font-size: 1rem;
             padding: 0.75rem;
+            border-radius: 5px;
         } 
            
-        a:hover {
-            background-color: var(--gray);
+        a:hover, .dropdown__title:hover {
+            background-color: var(--primary-tint-60);
         }
     }
 }

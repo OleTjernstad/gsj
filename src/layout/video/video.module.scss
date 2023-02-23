@@ -49,4 +49,8 @@
         border: none;
         font-family: inherit;
     }
+
+    button:hover {
+        transform: scale(1.8);
+    }
 }

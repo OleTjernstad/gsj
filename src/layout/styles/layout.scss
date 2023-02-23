@@ -42,6 +42,10 @@
         font-size: .75rem;
     }
 
+    .copyright:hover {
+        border-bottom: 2px solid var(--primary-tint-60);
+    }
+
     .company {
         padding-bottom: 10px;
     }
